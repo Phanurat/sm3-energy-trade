@@ -1,20 +1,20 @@
-# Use the official Node.js image with version 18+
-FROM node:18
+# ใช้ Node.js official image
+FROM node:16
 
-# Set the working directory
+# ตั้ง working directory ภายใน container
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json
+# Copy package.json และ package-lock.json (หรือ yarn.lock) ไปยัง container
 COPY package*.json ./
 
-# Install dependencies
+# ติดตั้ง dependencies
 RUN npm install
 
-# Copy the rest of your app
+# คัดลอกโค้ดโปรเจคทั้งหมดไปยัง container
 COPY . .
 
-# Expose port
+# เปิด port ที่แอปจะฟัง
 EXPOSE 3000
 
-# Command to run your app
-CMD ["npm", "start"]
+# รัน server.js เมื่อ container เริ่มทำงาน
+CMD ["node", "server.js"]

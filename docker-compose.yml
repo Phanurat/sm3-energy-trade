@@ -28,9 +28,9 @@ services:
       MYSQL_DATABASE: database_contracts
       MYSQL_USER: admin
       MYSQL_PASSWORD: 1111
-    # volumes:
-    #   - db_data:/var/lib/mysql
-    #   - ./db/database_contracts.sql:/docker-entrypoint-initdb.d/init.sql
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db/database_contracts.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - webnet
 
